@@ -9,9 +9,12 @@
 <body>
 <nav>
   <ul>
-    <li><%= link_to %></li>
-    <li><%= link_to %></li>
-    <li><%= link_to %></li>
+  <% if current_user %>
+    <li><%= link_to current_user.name, user_path(current_user.id)%></li>
+    <li><%= link_to "Home", user_posts_path(current_user.id) %></li>
+    <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+  <% end %>
+  <li><button id="signup">Sign Up</button></li>
   </ul>
 </nav>
 <%= yield %>
