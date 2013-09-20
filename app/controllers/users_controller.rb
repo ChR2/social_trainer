@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @post = Post.new
     @posts = @user.posts.order("created_at DESC")
   end
+  
+  def new
+      
+  end
 
   def update
     @user = User.find(params[:id])

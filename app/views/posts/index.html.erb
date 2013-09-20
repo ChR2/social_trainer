@@ -1,6 +1,6 @@
 <section class="feed">
   <h1><%= link_to image_tag(current_user.photo_url, {height:45}) + current_user.name, url_for(user_path(current_user.id)) %></h1>
-  <%= render partial: 'new', layout: false %>
+  <%= render partial: 'new'%>
   <ul>
   <% @posts.each do |post| %>
     <li>

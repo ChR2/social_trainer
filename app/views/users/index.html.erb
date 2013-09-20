@@ -1,7 +1,9 @@
 <section class="home">
-  <h1><%= current_user.name %></h1>
+  <% if current_user %>
+    <% redirect_to user_posts_path %>
+  <% else %>
   <h1>Welcome to Social Trainer</h1>
-    <%= form_for :user, url: sessions_path do |f| %>
+    <%= form_for :user, html:{class: "loginform"}, url: sessions_path do |f| %>
     <p>
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -11,8 +13,10 @@
       <%= f.password_field :password %>
     </p>
     <p>
-      <%= f.submit %>
+      <%= f.submit "Login" %>
     </p>
     <% end %>
+    <% end %>
+<%= render partial: 'new'%>
 </section>
 
